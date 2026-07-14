@@ -38,9 +38,9 @@ jj log
 jj git push   # or: jj git push --change @
 ```
 
-Baseline commands use modern surfaces: `jj git init` (not `jj init`),
-`jj bookmark` (not `jj branch`), `jj squash --from/--into` (not `jj move`),
-`jj undo` (not `jj op undo`), revset `bookmarks()` (not `branches()`).
+Baseline commands use modern surfaces: `jj git init`, `jj bookmark`,
+`jj squash --from/--into`, top-level `jj undo`, revset `bookmarks()`.
+(Avoid removed forms: bare `init`, `move`, `branch`, `op undo`, `branches()`.)
 
 ---
 
@@ -114,9 +114,9 @@ Tag naming and dual-repo layout: parent doc
 ## Why this exists
 
 Jujutsu is **underserved in the LLM skill ecosystem**. Outdated community packs
-still teach dead commands (`jj init`, `jj move`, `jj branch`, …). This pack is
-maintained against real release binaries and version-pinned docs so agents get
-**checkable** guidance per CLI line.
+still teach removed subcommands and revsets. This pack is maintained against real
+release binaries and version-pinned docs so agents get **checkable** guidance
+per CLI line.
 
 ---
 
