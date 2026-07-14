@@ -14,13 +14,11 @@ src/                         # this repo root
       SKILL.md
       README.md
       …
-    porthole-jj/             # project-local pilot (not portable)
 ```
 
 | Path | Role |
 |---|---|
 | [`skills/using-jj/`](./skills/using-jj/) | Portable community skill for general jj |
-| [`skills/porthole-jj/`](./skills/porthole-jj/) | Project-local pilot patterns |
 | [`skills/README.md`](./skills/README.md) | Catalog + install notes |
 
 ## Releases (jj tags)

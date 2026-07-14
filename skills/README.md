@@ -3,8 +3,6 @@
 Point agent skill discovery at **this directory** (`skills/`), or copy/symlink
 individual skill folders into your tool’s skills path.
 
-Install-shaped layout:
-
 ```text
 skills/                      ← discovery root
   README.md                  ← this catalog
@@ -13,15 +11,15 @@ skills/                      ← discovery root
     README.md                ← humans
     VERSIONS.md
     …
-  porthole-jj/
-    SKILL.md
-    …
 ```
 
 | Skill | Portable? | Description |
 |---|---|---|
 | [using-jj](./using-jj/) | **Yes** — community | General Jujutsu (jj) skill; CLI version gates |
-| [porthole-jj](./porthole-jj/) | **No** — project pilot | Nested-repo / plan-run jj pilot patterns |
+
+`porthole-jj` (Porthole monorepo pilot) was **removed** — not portable, not
+maintained for 0.40+ gates. Isolation/run-file ideas belong in project docs or
+a future generic scaffold, not this public catalog.
 
 ## using-jj (public product)
 
@@ -39,5 +37,5 @@ ln -s "$(pwd)/using-jj" /path/to/.agents/skills/using-jj
 # skills_root = /path/to/this/repo/skills
 ```
 
-Parent monorepo maintainers: product path is `src/skills/using-jj/`;
+Parent monorepo: product path is `src/skills/using-jj/`;
 frozen consumer install remains `docs/llm/skills/` until product M5.
