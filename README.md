@@ -47,7 +47,7 @@ skills/                 ← set as skills root (or clone path + /skills)
 
 ```bash
 # Clone (when published)
-git clone https://github.com/<you>/<this-repo>.git
+git clone https://github.com/techsaint/jj-vcs-skills.git
 # or: jj git clone …
 
 # Codex-style: symlink one skill
