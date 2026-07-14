@@ -1,40 +1,46 @@
 # Skills source repo (nested)
 
 This directory is a **separate jj/git repository** from the parent
-`jj-skills` tree. The parent gitignores `src/` so skill history lives here.
+`jj-skills` workbench. The parent gitignores `src/`.
 
-## Trees
+## Layout (multi-skill / install-shaped)
+
+```text
+src/                         # this repo root
+  README.md
+  skills/                    # ← point agent skills discovery here
+    README.md                # catalog
+    using-jj/                # community skill pack
+      SKILL.md
+      README.md
+      …
+    porthole-jj/             # project-local pilot (not portable)
+```
 
 | Path | Role |
 |---|---|
-| `using-jj/` | Portable community skill for general jj — start at [`using-jj/README.md`](./using-jj/README.md) |
-| `porthole-jj/` | Project-local pilot patterns |
+| [`skills/using-jj/`](./skills/using-jj/) | Portable community skill for general jj |
+| [`skills/porthole-jj/`](./skills/porthole-jj/) | Project-local pilot patterns |
+| [`skills/README.md`](./skills/README.md) | Catalog + install notes |
 
 ## Releases (jj tags)
-
-Skill packs that target a given **jj CLI** line are pinned with tags:
 
 ```text
 using-jj/jj-0.40.0   # baseline M3
 using-jj/jj-0.41.0   # + version gates M3 (main tip)
-…
 ```
-
-List / use:
 
 ```bash
 jj tag list
-jj new using-jj/jj-0.40.0
+jj new using-jj/jj-0.41.0
 ```
 
-Full dual-repo convention (parent tags, `main`, cut process):
+Convention: parent doc `docs/notes/releases/skill-version-tags.md`.
 
-`../docs/notes/releases/skill-version-tags.md`
-
-## Validation
-
-Use parent repo-local binaries, not PATH `jj`:
+## Validation (from monorepo root)
 
 ```bash
 ../tools/install/jj/bin/jj-0.40.0 --version
+python3 ../scripts/check_using_jj_skill.py --version 0.41.0
+# default skill-dir: src/skills/using-jj
 ```

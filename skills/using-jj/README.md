@@ -70,10 +70,11 @@ Baseline commands use modern surfaces: `jj git init`, `jj bookmark`,
 If you maintain this pack inside the **jj-skills** monorepo:
 
 - Validate with **repo-local binaries**, not PATH jj:
-  `../tools/install/jj/bin/jj-0.40.0` / `jj-0.41.0`
+  `tools/install/jj/bin/jj-0.40.0` / `jj-0.41.0` (from monorepo root)
 - Product maturity cards: `docs/product/features/jj-0.40.0.md`, `jj-0.41.0.md`
 - Confirmation process: `plans/confirm-jj-version-features/README.md`
-- Automated gate: `python3 scripts/check_using_jj_skill.py --version 0.41.0`
+- Automated gate: `python3 scripts/check_using_jj_skill.py --version 0.41.0
+  (default `--skill-dir src/skills/using-jj`)`
 
 ---
 
