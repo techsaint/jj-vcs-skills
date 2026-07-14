@@ -787,17 +787,17 @@ Everything is tracked in the operation log:
 # View all operations
 jj op log
 
-# Undo last operation
+# Undo last operation (repeat to go further back)
 jj undo
+jj undo   # again → older still
 
-# Undo multiple operations
-jj undo --what op-<id>
-
-# Restore to specific operation
+# Restore to a specific operation id from `jj op log`
 jj op restore <operation-id>
 
-# View state at previous operation
-jj log --at-op <operation-id>
+# View state at a previous operation (global flag)
+jj --at-operation <operation-id> log
+# short alias:
+jj --at-op <operation-id> log
 ```
 
 **Best practices**:

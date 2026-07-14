@@ -272,7 +272,7 @@ jj split
 jj squash --from REV1 --into REV2
 
 # Undo mistakes
-jj op undo
+jj undo
 ```
 
 → See: [jujutsu-workflows.md](./jujutsu-workflows.md) § History Editing - Load when you need to modify, split, or reorganize commits safely using jj's operation log.
@@ -306,7 +306,7 @@ Every jj operation is recorded. You can undo/redo anything.
 
 ```bash
 jj op log        # View operation history
-jj op undo       # Undo last operation
+jj undo       # Undo last operation
 jj op restore @- # Restore to specific operation
 ```
 
@@ -335,7 +335,7 @@ Conflicts can be committed, rebased, and cherry-picked. They're not errors that 
 2. **Branches are optional** - Work without naming overhead
 3. **Rewriting is safe** - Operation log has your back
 4. **Conflicts are data** - Commit now, resolve later
-5. **Everything has undo** - jj op undo is your friend
+5. **Everything has undo** - jj undo is your friend
 
 ### Command Translation Patterns
 ```bash
@@ -454,7 +454,7 @@ jj config set --user ui.diff.tool meld
 | I'm migrating a team | [jj-setup-guide.md](./jj-setup-guide.md) § Migration + [jujutsu-workflows.md](./jujutsu-workflows.md) § Collaboration | Load for team adoption strategies |
 | I hit a specific problem | [jujutsu-workflows.md](./jujutsu-workflows.md) § Common Pitfalls | Load when troubleshooting errors |
 
-**Remember:** jj is designed to be forgiving. The operation log (`jj op log`) records everything, so you can always undo with `jj op undo` or restore to any previous state with `jj op restore`. Experiment fearlessly.
+**Remember:** jj is designed to be forgiving. The operation log (`jj op log`) records everything, so you can always undo with `jj undo` or restore to any previous state with `jj op restore`. Experiment fearlessly.
 
 **Core workflow pattern:**
 1. `jj status` - See what's changed

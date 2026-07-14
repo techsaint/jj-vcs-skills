@@ -127,7 +127,7 @@ git rebase --continue
    jj op log  # Find the problematic operation
    jj op restore <operation>  # Jump to that state
    # Or
-   jj op undo <operation>  # Undo just that operation
+   jj op revert <operation>  # Undo just that operation
    ```
 
 3. **See ALL Changes to Repo**: View every modification:

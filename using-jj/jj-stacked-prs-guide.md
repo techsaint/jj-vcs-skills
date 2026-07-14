@@ -857,7 +857,7 @@ jj bookmark set AUTH-42/02-core-logic --revision <commit-id>
 # Use operation log to undo
 
 jj op log  # Find operation before squash
-jj op undo  # Undo last operation
+jj undo  # Undo last operation
 
 # Or restore to specific operation
 jj op restore <operation-id>
@@ -905,7 +905,7 @@ jj git push --bookmark AUTH-42/dev --force
 # Too many conflicts after rebase
 # Abort and try different approach
 
-jj op undo  # Undo the rebase
+jj undo  # Undo the rebase
 
 # Alternative: Rebase layer by layer
 jj rebase -s AUTH-42/01-database-schema -d main
@@ -1044,7 +1044,7 @@ jj op log  # Note current operation ID
 jj rebase -s AUTH-42/02-core-logic -d AUTH-42/01-database-schema
 
 # If it goes wrong
-jj op undo  # Or restore to noted operation
+jj undo  # Or restore to noted operation
 ```
 
 ### 10. Delete Merged Bookmarks Promptly
@@ -1460,7 +1460,7 @@ This bookmark-based stacked PR workflow provides:
 jj new -B BOOKMARK --no-edit    # Start work at bookmark
 jj squash --into BOOKMARK        # Squash work into bookmark
 jj git push --bookmark BOOKMARK  # Publish layer
-jj op undo                       # Undo mistakes
+jj undo                       # Undo mistakes
 ```
 
 **Remember:**

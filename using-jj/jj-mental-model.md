@@ -275,12 +275,13 @@ $ jj op log
 **1. True Undo:**
 ```bash
 $ jj undo              # Undo last operation
-$ jj undo @-           # Undo second-to-last operation
+$ jj undo              # again → one step further into the past
 ```
 
-**2. Selective Undo:**
+**2. Selective restore (by operation id from `jj op log`):**
 ```bash
 $ jj op restore abc    # Restore repo to operation abc
+$ jj op revert abc     # Apply the inverse of operation abc (new op)
 ```
 
 **3. View History at Any Operation:**

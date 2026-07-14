@@ -1354,7 +1354,7 @@ jj log -r 'file(services/auth_service.py) & main..@original'
 jj op log
 # Find operation before the wrong move
 
-jj op undo
+jj undo
 # Or restore to specific operation
 jj op restore <operation-id>
 
@@ -1650,7 +1650,7 @@ jj restore --from COMMIT files/     # Extract files from old commits
 jj squash --from SRC --into DEST files/ # Move changes between commits
 jj split                            # Split monolithic commits
 jj squash --into BOOKMARK           # Build up layers
-jj op undo                          # Fix mistakes
+jj undo                          # Fix mistakes
 ```
 
 **Remember:**
