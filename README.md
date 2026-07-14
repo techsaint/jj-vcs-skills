@@ -7,7 +7,7 @@ This directory is a **separate jj/git repository** from the parent
 
 | Path | Role |
 |---|---|
-| `using-jj/` | Portable community skill for general jj (CLI-line versioned) |
+| `using-jj/` | Portable community skill for general jj — start at [`using-jj/README.md`](./using-jj/README.md) |
 | `porthole-jj/` | Project-local pilot patterns |
 
 ## Releases (jj tags)
@@ -15,8 +15,8 @@ This directory is a **separate jj/git repository** from the parent
 Skill packs that target a given **jj CLI** line are pinned with tags:
 
 ```text
-using-jj/jj-0.40.0   # baseline for jj 0.40.0 (current)
-using-jj/jj-0.41.0   # future finish-gates
+using-jj/jj-0.40.0   # baseline M3
+using-jj/jj-0.41.0   # + version gates M3 (main tip)
 …
 ```
 
