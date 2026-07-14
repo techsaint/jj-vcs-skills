@@ -283,6 +283,8 @@ jj bookmark create google-signin -r <step-3>
 
 # Push all
 jj git push --all
+# jj ≥ 0.41: ineligible (private/conflict) bookmarks may be skipped — verify remotes
+# see VERSIONS.md
 
 # Create PRs in order
 gh pr create --base main --head auth-interface

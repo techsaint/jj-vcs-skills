@@ -327,11 +327,15 @@ jj new main@origin
 - Use `--bookmark` to push a specific bookmark
 - Use `--all` to push all bookmarks
 - Use `--change` to create a bookmark for a specific change and push it
+- **jj ≥ 0.41:** `--all` / `--tracked` / `-r` **skip** bookmarks that are private
+  or conflicted instead of failing the whole push — always verify what landed
+  (see [VERSIONS.md](./VERSIONS.md))
 
 **Examples:**
 ```bash
 # Push all bookmarks
 jj git push --all
+# On 0.41+: check output / remotes — some bookmarks may have been skipped
 
 # Push specific bookmark
 jj git push --bookmark main

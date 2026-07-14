@@ -7,20 +7,27 @@ description: Use when working with Jujutsu (jj) version control - provides compr
 
 ## Target version
 
-**Baseline: jj 0.40.0.** Examples and command surfaces in this skill target **0.40.0**
-unless a note says otherwise. Newer lines (0.41+) will gain explicit version gates
-in later passes; do not assume 0.43-only features (e.g. real `jj run`) work on 0.40.
+**Baseline recipes: jj 0.40.0.** Core command surfaces (init/squash/bookmark/undo/…)
+are accurate for **0.40.0**.
+
+**Version gates through jj 0.41.0** are documented in
+[VERSIONS.md](./VERSIONS.md) (e.g. `--no-integrate-operation`, file-search pattern
+default **regex:**, push skip behavior). Apply that file when the user’s CLI is
+**0.41.0** (or when unsure, check `jj --version`).
+
+Do **not** assume 0.43-only features (e.g. real `jj run`) work on 0.40/0.41.
 
 **Validate with the repo-local binary** (not system PATH `jj`):
 
 ```bash
-./tools/install/jj/bin/jj-0.40.0 --version
-# Official docs for this line:
-# https://www.jj-vcs.dev/v0.40.0/
+./tools/install/jj/bin/jj-0.40.0 --version   # baseline
+./tools/install/jj/bin/jj-0.41.0 --version   # with VERSIONS.md gates
+# Docs: https://www.jj-vcs.dev/v0.40.0/  ·  https://www.jj-vcs.dev/v0.41.0/
 ```
 
-Research / audits: `docs/research/jj-feature-audit/v0.40.0/`,
-`docs/product/features/jj-0.40.0.md`.
+Research / features: `docs/research/jj-feature-audit/v0.40.0/`,
+`docs/research/jj-feature-audit/v0.41.0/`, `docs/product/features/jj-0.40.0.md`,
+`docs/product/features/jj-0.41.0.md`.
 
 ## TRIGGER
 Load when you need **general jj** command translation, mental model, or a feature not
@@ -66,7 +73,13 @@ If you want to leverage jj's unique power:
 
 ## Documentation Index
 
-This skill includes seven comprehensive reference documents:
+This skill includes seven comprehensive reference documents plus version gates:
+
+### 0. [VERSIONS.md](./VERSIONS.md)
+**CLI version gates (0.40 baseline + 0.41+ deltas)**
+
+**Load when:** the user’s `jj --version` is not exactly the baseline, or the task
+is automation / bulk push / file search patterns.
 
 ### 1. [jj-git-command-reference.md](./jj-git-command-reference.md) (23KB)
 **Complete command mappings from git to jj**
@@ -358,8 +371,13 @@ jj git push
 3. `jj new` creates a child, not a sibling
 4. Remote operations use `jj git fetch/push`, not `jj fetch/push`
 5. Commit hashes change when you edit commits
+6. **jj ≥ 0.41:** `jj git push --all` / bulk push may **skip** private/conflict
+   bookmarks instead of failing — verify remotes after push ([VERSIONS.md](./VERSIONS.md))
+7. **jj ≥ 0.41:** `jj file search --pattern` defaults to **regex:** not glob
+   ([VERSIONS.md](./VERSIONS.md))
 
 → See: [jujutsu-workflows.md](./jujutsu-workflows.md) § Common Pitfalls & Gotchas - Load when you encounter confusing behavior or errors, or to learn common mistakes to avoid.
+→ See: [VERSIONS.md](./VERSIONS.md) for full 0.41+ gates.
 
 ## Migration Strategies
 
@@ -426,9 +444,10 @@ jj config set --user ui.diff.tool meld
 
 ### Official Resources
 - Website: https://github.com/jj-vcs/jj
-- **Version-pinned docs (this skill baseline):** https://www.jj-vcs.dev/v0.40.0/
+- **Version-pinned docs:** [0.40.0](https://www.jj-vcs.dev/v0.40.0/) · [0.41.0](https://www.jj-vcs.dev/v0.41.0/)
 - Latest docs (moves): https://docs.jj-vcs.dev/latest/
-- Tutorial: https://www.jj-vcs.dev/v0.40.0/tutorial/
+- Tutorial: https://www.jj-vcs.dev/v0.41.0/tutorial/ (or `/v0.40.0/tutorial/` for baseline)
+- **CLI version gates (this pack):** [VERSIONS.md](./VERSIONS.md)
 
 ### Community
 - GitHub Discussions: https://github.com/martinvonz/jj/discussions
