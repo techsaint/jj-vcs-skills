@@ -6,6 +6,10 @@ The LLM skill ecosystem underserves jj: packs still teach removed or
 version-wrong commands. This repository maintains **checkable** skill content
 against real release binaries and version-pinned docs, line by line (0.40, 0.41, …).
 
+Content and layout borrow from the
+[Superpowers](https://github.com/obra/superpowers) skill ecosystem (and related
+community packs), reworked and re-verified for modern jj CLI lines.
+
 | | |
 |---|---|
 | **Skill pack** | [`skills/using-jj/`](./skills/using-jj/) |
@@ -21,9 +25,12 @@ Official docs: [v0.40.0](https://www.jj-vcs.dev/v0.40.0/) · [v0.41.0](https://w
 | jj CLI | Skill gates | Tag (this repo) |
 |---|---|---|
 | **0.40.0** | Baseline recipes | `using-jj/jj-0.40.0` |
-| **0.41.0** | + version gates | `using-jj/jj-0.41.0` (tip) |
+| **0.41.0** | + version gates | `using-jj/jj-0.41.0` |
 | 0.42.0 | Not finished yet | — |
 | 0.43.0 | Not finished yet | — |
+
+Which line is “current” is a **release** concern: use this repo’s default
+branch, other branches, and tags on GitHub — not wording in this README.
 
 ---
 
@@ -104,6 +111,9 @@ What matters: the tool sees a directory named `using-jj` that contains
 2. **Newer lines** — open [`VERSIONS.md`](./skills/using-jj/VERSIONS.md) and apply the section for your `jj --version` (e.g. 0.41 push-skip and regex file-search defaults).
 3. **Do not** assume latest-only features (e.g. production `jj run`) work on 0.40/0.41.
 
+Pin a snapshot via GitHub **branches** and **tags** when you need a fixed CLI
+line; the default branch is whatever this project currently publishes as HEAD.
+
 ---
 
 ## Layout
@@ -121,25 +131,18 @@ What matters: the tool sees a directory named `using-jj` that contains
 
 ---
 
-## Releases
-
-Tags pin skill content to a **jj CLI** line:
-
-```bash
-jj tag list
-# using-jj/jj-0.40.0
-# using-jj/jj-0.41.0
-
-jj new using-jj/jj-0.40.0    # work from the 0.40 snapshot
-```
-
----
-
 ## Why this exists
 
 Jujutsu is underserved in the LLM skill ecosystem. Outdated community packs still
 teach removed subcommands and revsets. This pack is maintained against real
 release binaries and version-pinned docs so guidance is **checkable** per CLI line.
+
+---
+
+## Maintainers
+
+TODO: add maintainer notes (how to verify skill content against a jj CLI line,
+how tags/branches are cut, contribution expectations).
 
 ---
 
@@ -153,3 +156,4 @@ release binaries and version-pinned docs so guidance is **checkable** per CLI li
 
 - Upstream jj: https://github.com/jj-vcs/jj  
 - Versioned docs: https://www.jj-vcs.dev/  
+- Superpowers skills: https://github.com/obra/superpowers  

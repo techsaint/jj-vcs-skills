@@ -22,7 +22,7 @@ skills/                      ← discovery root
 - Skills file: [using-jj/SKILL.md](./using-jj/SKILL.md)
 - Version gates: [using-jj/VERSIONS.md](./using-jj/VERSIONS.md)
 - Repo overview: [../README.md](../README.md)
-- Releases (tags in this repo): `using-jj/jj-0.40.0`, `using-jj/jj-0.41.0`, …
+- Version pins: GitHub branches and tags (see root [README](../README.md))
 
 ## Install examples
 
