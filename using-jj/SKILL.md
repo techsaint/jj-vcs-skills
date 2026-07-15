@@ -7,11 +7,9 @@ description: Use when working with Jujutsu (jj) version control - provides compr
 
 ## Target version
 
-**Baseline recipes: jj 0.40.0.** Core command surfaces (init/squash/bookmark/undo/…)
-are accurate for **0.40.0**.
+This pack supports **jj 0.40.0**.
 
-Do **not** assume later-line-only features (e.g. production `jj run` on newer CLIs)
-work on 0.40.
+Core command surfaces (init/squash/bookmark/undo/…) are written for **0.40.0**.
 
 Check the installed CLI with `jj --version`. Official docs for this line:
 [v0.40.0](https://www.jj-vcs.dev/v0.40.0/).

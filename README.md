@@ -25,9 +25,8 @@ What matters: the tool sees a directory named `using-jj` that contains
 
 ## Version policy
 
-Recipes in this snapshot target **jj 0.40.0**. Check the installed CLI with
-`jj --version`. For newer CLI lines, use the matching tag or the default branch
-on GitHub.
+This snapshot supports **jj 0.40.0** only. Check the installed CLI with
+`jj --version`. Official docs: https://www.jj-vcs.dev/v0.40.0/
 
 ## License
 
