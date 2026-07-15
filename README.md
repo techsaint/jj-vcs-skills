@@ -1,5 +1,7 @@
 # jj-vcs skills
 
+[![Release](https://github.com/techsaint/jj-vcs-skills/actions/workflows/release.yml/badge.svg)](https://github.com/techsaint/jj-vcs-skills/actions/workflows/release.yml)
+
 **Community-oriented skills for [Jujutsu (jj)](https://github.com/jj-vcs/jj).**
 
 The LLM skill ecosystem underserves jj: packs still teach removed or

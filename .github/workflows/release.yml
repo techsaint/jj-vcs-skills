@@ -1,0 +1,37 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "using-jj/jj-*"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Pack skill zip
+        run: |
+          set -euo pipefail
+          TAG="${GITHUB_REF_NAME}"
+          # Safe filename: using-jj/jj-0.41.0 → using-jj-jj-0.41.0
+          SAFE="${TAG//\//-}"
+          mkdir -p dist
+          (cd skills && zip -r "../dist/${SAFE}.zip" using-jj)
+          ls -la dist/
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.ref_name }}
+          name: ${{ github.ref_name }}
+          files: dist/*.zip
+          generate_release_notes: true
+          fail_on_unmatched_files: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
