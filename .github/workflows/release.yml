@@ -42,16 +42,22 @@ jobs:
           set -euo pipefail
           SAFE="${{ steps.meta.outputs.safe }}"
           mkdir -p dist
-          # Current layout: skills/using-jj/; older tags: using-jj/ at repo root
+          # Install-shaped path: skills/using-jj/… (matches repo layout + README).
+          # Older tags may still have using-jj/ at repo root — wrap into skills/.
           if [ -d skills/using-jj ]; then
-            (cd skills && zip -r "../dist/${SAFE}.zip" using-jj)
+            zip -r "dist/${SAFE}.zip" skills/using-jj
           elif [ -d using-jj ]; then
-            zip -r "dist/${SAFE}.zip" using-jj
+            mkdir -p dist/staging/skills
+            cp -a using-jj dist/staging/skills/
+            (cd dist/staging && zip -r "../${SAFE}.zip" skills/using-jj)
+            rm -rf dist/staging
           else
             echo "No using-jj skill directory found at skills/using-jj or using-jj" >&2
             ls -la
             exit 1
           fi
+          echo "Archive layout:"
+          unzip -l "dist/${SAFE}.zip" | head -20
           ls -la dist/
 
       - name: Create GitHub Release
