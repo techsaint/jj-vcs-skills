@@ -141,10 +141,7 @@ release binaries and version-pinned docs so guidance is **checkable** per CLI li
 
 ## Maintainers
 
-TODO: expand with contribution expectations and how releases are cut
-(default branch + tags on this GitHub repo). Keep this section
-**self-contained** — no private workbench paths.
-
+TODO
 ---
 
 ## License
