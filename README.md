@@ -141,8 +141,9 @@ release binaries and version-pinned docs so guidance is **checkable** per CLI li
 
 ## Maintainers
 
-TODO: add maintainer notes (how to verify skill content against a jj CLI line,
-how tags/branches are cut, contribution expectations).
+TODO: expand with contribution expectations and how releases are cut
+(default branch + tags on this GitHub repo). Keep this section
+**self-contained** — no private workbench paths.
 
 ---
 
