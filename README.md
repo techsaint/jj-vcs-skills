@@ -174,7 +174,7 @@ release binaries and version-pinned docs so guidance is **checkable** per CLI li
 
 ## License
 
-TODO before public release — add a `LICENSE` file (e.g. MIT / Apache-2.0).
+[MIT](./LICENSE) — Copyright (c) 2026 Chris Butler.
 
 ---
 
