@@ -29,12 +29,11 @@ Research / features: `docs/research/jj-feature-audit/v0.40.0/`,
 `docs/research/jj-feature-audit/v0.41.0/`, `docs/product/features/jj-0.40.0.md`,
 `docs/product/features/jj-0.41.0.md`.
 
-Human / community pack entry: [README.md](./README.md).
+Repo overview (install, pack layout, version policy): [../../README.md](../../README.md).
 
 ## TRIGGER
-Load when you need **general jj** command translation, mental model, or a feature not
-covered by `porthole-jj` (the Porthole-specific layer). Pair with `porthole-jj` for any
-plan-workspace work. SKIP if the task does not use jj.
+Load when you need **general jj** command translation, mental model, workflows, or
+setup. SKIP if the task does not use jj.
 
 ## Overview
 

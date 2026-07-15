@@ -1,8 +1,8 @@
 # Version gates (jj CLI lines)
 
 This skill pack’s **command recipes** are baseline-accurate for **jj 0.40.0**.
-Each newer line adds **gates**: behavior or flags that differ from 0.40. Agents
-must pick the binary that matches the user’s jj and apply the matching section.
+Each newer line adds **gates**: behavior or flags that differ from 0.40. Pick the
+binary that matches the user’s jj and apply the matching section.
 
 | CLI line | Skill status | Validate with |
 |---|---|---|
@@ -28,7 +28,7 @@ jj --no-integrate-operation status
 # read `jj --help` for the flag’s caveats on your binary
 ```
 
-Prefer this for background status/log probes from agents when on **≥ 0.41**.
+Prefer this for background status/log probes when on **≥ 0.41**.
 
 ### `jj file search --pattern` default is **regex:**
 
@@ -40,14 +40,14 @@ jj file search --pattern 'regex:foo.*bar'
 jj file search --pattern 'glob:*foo*'    # whole-line glob; often need *…*
 ```
 
-If an agent assumes “shell glob” without a kind, matches will be wrong on 0.41+.
+If “shell glob” is assumed without a kind, matches will be wrong on 0.41+.
 
 ### `jj git push --all` / `--tracked` / `-r` may **skip** ineligible bookmarks
 
 On 0.41, push no longer hard-fails the whole command when some revisions are
 **private** or have **conflicts**. Ineligible bookmarks are **skipped**.
 
-**Agent rule:** exit code 0 is not proof that every intended bookmark pushed.
+**Rule:** exit code 0 is not proof that every intended bookmark pushed.
 After bulk push, verify with `jj bookmark list` / remote state / command output.
 Use `--allow-private` when private commits must be pushed (see `jj git push --help`).
 
