@@ -7,17 +7,15 @@ description: Use when working with Jujutsu (jj) version control - provides compr
 
 ## Target version
 
-**Baseline recipes: jj 0.40.0.** Core command surfaces (init/squash/bookmark/undo/…)
-are accurate for **0.40.0**.
+This pack supports **jj through 0.41.0**.
 
-**Version gates through jj 0.41.0** are documented in
-[VERSIONS.md](./VERSIONS.md) (e.g. `--no-integrate-operation`, file-search pattern
-default **regex:**, push skip behavior). Apply that file when the user’s CLI is
-**0.41.0** (or when unsure, check `jj --version`).
+- **Baseline recipes (0.40.0):** core command surfaces in the guides
+  (init/squash/bookmark/undo/…) are written for **0.40.0**.
+- **0.41.0 gates:** differences from 0.40 are in [VERSIONS.md](./VERSIONS.md)
+  (e.g. `--no-integrate-operation`, file-search pattern default **regex:**,
+  push skip behavior). Apply that file when `jj --version` is **0.41.0**.
 
-Do **not** assume 0.43-only features (e.g. real `jj run`) work on 0.40/0.41.
-
-Check the installed CLI with `jj --version`. Official docs for the gated lines:
+Check the installed CLI with `jj --version`. Official docs:
 [v0.40.0](https://www.jj-vcs.dev/v0.40.0/) · [v0.41.0](https://www.jj-vcs.dev/v0.41.0/).
 
 Repo overview (install, pack layout, version policy): [../../README.md](../../README.md).
@@ -68,10 +66,10 @@ If you want to leverage jj's unique power:
 This skill includes seven comprehensive reference documents plus version gates:
 
 ### 0. [VERSIONS.md](./VERSIONS.md)
-**CLI version gates (0.40 baseline + 0.41+ deltas)**
+**CLI version gates (0.40 baseline + 0.41 differences)**
 
-**Load when:** the user’s `jj --version` is not exactly the baseline, or the task
-is automation / bulk push / file search patterns.
+**Load when:** the user’s `jj --version` is **0.41.0**, or the task involves
+automation / bulk push / file search patterns on 0.41.
 
 ### 1. [jj-git-command-reference.md](./jj-git-command-reference.md) (23KB)
 **Complete command mappings from git to jj**
@@ -363,13 +361,13 @@ jj git push
 3. `jj new` creates a child, not a sibling
 4. Remote operations use `jj git fetch/push`, not `jj fetch/push`
 5. Commit hashes change when you edit commits
-6. **jj ≥ 0.41:** `jj git push --all` / bulk push may **skip** private/conflict
+6. **jj 0.41:** `jj git push --all` / bulk push may **skip** private/conflict
    bookmarks instead of failing — verify remotes after push ([VERSIONS.md](./VERSIONS.md))
-7. **jj ≥ 0.41:** `jj file search --pattern` defaults to **regex:** not glob
+7. **jj 0.41:** `jj file search --pattern` defaults to **regex:** not glob
    ([VERSIONS.md](./VERSIONS.md))
 
 → See: [jujutsu-workflows.md](./jujutsu-workflows.md) § Common Pitfalls & Gotchas - Load when you encounter confusing behavior or errors, or to learn common mistakes to avoid.
-→ See: [VERSIONS.md](./VERSIONS.md) for full 0.41+ gates.
+→ See: [VERSIONS.md](./VERSIONS.md) for 0.41 gates.
 
 ## Migration Strategies
 

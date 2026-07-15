@@ -1,16 +1,18 @@
 # Version gates (jj CLI lines)
 
-This skill pack’s **command recipes** are baseline-accurate for **jj 0.40.0**.
-Each newer line adds **gates**: behavior or flags that differ from 0.40. Match
-gates to the user’s `jj --version`.
+This skill pack supports **jj through 0.41.0**.
+
+- **Baseline recipes** (guides + `SKILL.md` workflows): written for **jj 0.40.0**.
+- **0.41.0 gates** (this file): differences from 0.40 that apply when the user’s
+  `jj --version` is **0.41.0**.
+
+Match gates to the installed CLI. Official docs:
+https://www.jj-vcs.dev/v0.40.0/ · https://www.jj-vcs.dev/v0.41.0/
 
 | CLI line | Skill status |
 |---|---|
 | **0.40.0** | Baseline recipes |
 | **0.41.0** | Gates below |
-| 0.42.0+ | Not gated in this pack yet |
-
-Official docs: https://www.jj-vcs.dev/v0.40.0/ · https://www.jj-vcs.dev/v0.41.0/
 
 ---
 
@@ -28,7 +30,7 @@ jj --no-integrate-operation status
 # read `jj --help` for the flag’s caveats on your binary
 ```
 
-Prefer this for background status/log probes when on **≥ 0.41**.
+Prefer this for background status/log probes when on **0.41**.
 
 ### `jj file search --pattern` default is **regex:**
 
@@ -40,7 +42,7 @@ jj file search --pattern 'regex:foo.*bar'
 jj file search --pattern 'glob:*foo*'    # whole-line glob; often need *…*
 ```
 
-If “shell glob” is assumed without a kind, matches will be wrong on 0.41+.
+If “shell glob” is assumed without a kind, matches will be wrong on 0.41.
 
 ### `jj git push --all` / `--tracked` / `-r` may **skip** ineligible bookmarks
 
@@ -55,16 +57,14 @@ Use `--allow-private` when private commits must be pushed (see `jj git push --he
 
 Patterns from clone are stored in **jj’s repo settings**, not only `.git/config`.
 Do not teach “edit `.git/config` refspecs” as the sole place clone filters live
-on 0.41+.
+on 0.41.
 
 ### Templates: `Operation.tags()` deprecated
 
-Prefer **`Operation.attributes()`** on 0.41+. (This pack rarely uses op template
+Prefer **`Operation.attributes()`** on 0.41. (This pack rarely uses op template
 fields; if you add them, use `attributes`.)
 
-### Still stub / not 0.41-only
+### Unchanged from 0.40 baseline
 
-- **`jj run`**: help may exist as a **stub** on 0.40–0.42; real behavior is a
-  **0.43+** topic — do not teach as production workflow yet.
-- Core recipes (`jj git init`, `jj squash --from/--into`, `jj bookmark`,
-  `jj undo`, `bookmarks()`) remain as in the 0.40 baseline.
+Core recipes (`jj git init`, `jj squash --from/--into`, `jj bookmark`,
+`jj undo`, `bookmarks()`) remain as in the 0.40 baseline guides.

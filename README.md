@@ -6,7 +6,8 @@
 
 The LLM skill ecosystem underserves jj: packs still teach removed or
 version-wrong commands. This repository maintains **checkable** skill content
-against real release binaries and version-pinned docs, line by line (0.40, 0.41, …).
+against real release binaries and version-pinned docs for the supported CLI
+lines.
 
 Content and layout borrow from the
 [Superpowers](https://github.com/obra/superpowers) skill ecosystem (and related
@@ -24,15 +25,15 @@ Official docs: [v0.40.0](https://www.jj-vcs.dev/v0.40.0/) · [v0.41.0](https://w
 
 ## Status (jj CLI lines)
 
+This pack supports **through jj 0.41.0**.
+
 | jj CLI | Skill gates | Tag (this repo) |
 |---|---|---|
 | **0.40.0** | Baseline recipes | `using-jj/jj-0.40.0` |
 | **0.41.0** | + version gates | `using-jj/jj-0.41.0` |
-| 0.42.0 | Not finished yet | — |
-| 0.43.0 | Not finished yet | — |
 
-Which line is “current” is a **release** concern: use this repo’s default
-branch, other branches, and tags on GitHub — not wording in this README.
+Pin a snapshot with tags when you need a fixed CLI line; the default branch is
+whatever this project currently publishes as HEAD.
 
 ---
 
@@ -96,7 +97,7 @@ What matters: the tool sees a directory named `using-jj` that contains
 | File | Role |
 |---|---|
 | [`SKILL.md`](./skills/using-jj/SKILL.md) | Skills file: target versions, TRIGGER, index, common workflows |
-| [`VERSIONS.md`](./skills/using-jj/VERSIONS.md) | **Version gates** (0.40 baseline + 0.41+ deltas) |
+| [`VERSIONS.md`](./skills/using-jj/VERSIONS.md) | **Version gates** (0.40 baseline + 0.41 differences) |
 | [`jj-mental-model.md`](./skills/using-jj/jj-mental-model.md) | How jj thinks (change IDs, op log, revsets, …) |
 | [`jj-setup-guide.md`](./skills/using-jj/jj-setup-guide.md) | Install, config, colocate, migration |
 | [`jj-git-command-reference.md`](./skills/using-jj/jj-git-command-reference.md) | git → jj command map |
@@ -109,12 +110,11 @@ What matters: the tool sees a directory named `using-jj` that contains
 
 ## Version policy
 
-1. **Baseline = 0.40.0** — recipes in the guides are written for that CLI.
-2. **Newer lines** — open [`VERSIONS.md`](./skills/using-jj/VERSIONS.md) and apply the section for your `jj --version` (e.g. 0.41 push-skip and regex file-search defaults).
-3. **Do not** assume latest-only features (e.g. production `jj run`) work on 0.40/0.41.
-
-Pin a snapshot via GitHub **branches** and **tags** when you need a fixed CLI
-line; the default branch is whatever this project currently publishes as HEAD.
+1. **Supported through 0.41.0** — this pack’s skill content covers 0.40.0 and 0.41.0.
+2. **Baseline = 0.40.0** — recipes in the guides are written for that CLI.
+3. **0.41.0** — open [`VERSIONS.md`](./skills/using-jj/VERSIONS.md) and apply the
+   gates when `jj --version` is 0.41.0 (push-skip, regex file-search defaults, …).
+4. Check the installed CLI with `jj --version` and match the docs/gates for that line.
 
 ---
 
