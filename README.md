@@ -1,40 +1,34 @@
-# Skills source repo (nested)
+# jj-vcs skills
 
-This directory is a **separate jj/git repository** from the parent
-`jj-skills` tree. The parent gitignores `src/` so skill history lives here.
+**Community-oriented skills for [Jujutsu (jj)](https://github.com/jj-vcs/jj).**
 
-## Trees
+This snapshot is the **jj 0.40.0** baseline skill pack.
 
-| Path | Role |
+| | |
 |---|---|
-| `using-jj/` | Portable community skill for general jj (CLI-line versioned) |
-| `porthole-jj/` | Project-local pilot patterns |
+| **Skill pack** | [`using-jj/`](./using-jj/) |
+| **Skills file** | [`using-jj/SKILL.md`](./using-jj/SKILL.md) |
 
-## Releases (jj tags)
+Official docs: [v0.40.0](https://www.jj-vcs.dev/v0.40.0/)
 
-Skill packs that target a given **jj CLI** line are pinned with tags:
+## Install
 
-```text
-using-jj/jj-0.40.0   # baseline for jj 0.40.0 (current)
-using-jj/jj-0.41.0   # future finish-gates
-…
-```
-
-List / use:
+Point skill discovery at a skills root that contains `using-jj/` (this tree’s
+`using-jj/` folder), or symlink that folder into an existing skills root.
 
 ```bash
-jj tag list
-jj new using-jj/jj-0.40.0
+ln -s "$(pwd)/using-jj" /path/to/.agents/skills/using-jj
 ```
 
-Full dual-repo convention (parent tags, `main`, cut process):
+What matters: the tool sees a directory named `using-jj` that contains
+**`SKILL.md`**.
 
-`../docs/notes/releases/skill-version-tags.md`
+## Version policy
 
-## Validation
+Recipes in this snapshot target **jj 0.40.0**. Check the installed CLI with
+`jj --version`. For newer CLI lines, use the matching tag or the default branch
+on GitHub.
 
-Use parent repo-local binaries, not PATH `jj`:
+## License
 
-```bash
-../tools/install/jj/bin/jj-0.40.0 --version
-```
+[MIT](https://github.com/techsaint/jj-vcs-skills/blob/main/LICENSE) © [techsaint](https://github.com/techsaint)

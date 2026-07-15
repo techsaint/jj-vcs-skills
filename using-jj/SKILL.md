@@ -7,25 +7,18 @@ description: Use when working with Jujutsu (jj) version control - provides compr
 
 ## Target version
 
-**Baseline: jj 0.40.0.** Examples and command surfaces in this skill target **0.40.0**
-unless a note says otherwise. Newer lines (0.41+) will gain explicit version gates
-in later passes; do not assume 0.43-only features (e.g. real `jj run`) work on 0.40.
+**Baseline recipes: jj 0.40.0.** Core command surfaces (init/squash/bookmark/undo/…)
+are accurate for **0.40.0**.
 
-**Validate with the repo-local binary** (not system PATH `jj`):
+Do **not** assume later-line-only features (e.g. production `jj run` on newer CLIs)
+work on 0.40.
 
-```bash
-./tools/install/jj/bin/jj-0.40.0 --version
-# Official docs for this line:
-# https://www.jj-vcs.dev/v0.40.0/
-```
-
-Research / audits: `docs/research/jj-feature-audit/v0.40.0/`,
-`docs/product/features/jj-0.40.0.md`.
+Check the installed CLI with `jj --version`. Official docs for this line:
+[v0.40.0](https://www.jj-vcs.dev/v0.40.0/).
 
 ## TRIGGER
-Load when you need **general jj** command translation, mental model, or a feature not
-covered by `porthole-jj` (the Porthole-specific layer). Pair with `porthole-jj` for any
-plan-workspace work. SKIP if the task does not use jj.
+Load when you need **general jj** command translation, mental model, workflows, or
+setup. SKIP if the task does not use jj.
 
 ## Overview
 
