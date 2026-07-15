@@ -141,14 +141,9 @@ release binaries and version-pinned docs so guidance is **checkable** per CLI li
 
 ---
 
-## Maintainers
-
-TODO
----
-
 ## License
 
-[MIT](./LICENSE) — Copyright (c) 2026 Chris Butler.
+[MIT](./LICENSE) © [techsaint](https://github.com/techsaint)
 
 ---
 
