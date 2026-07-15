@@ -42,8 +42,16 @@ jobs:
           set -euo pipefail
           SAFE="${{ steps.meta.outputs.safe }}"
           mkdir -p dist
-          test -d skills/using-jj
-          (cd skills && zip -r "../dist/${SAFE}.zip" using-jj)
+          # Current layout: skills/using-jj/; older tags: using-jj/ at repo root
+          if [ -d skills/using-jj ]; then
+            (cd skills && zip -r "../dist/${SAFE}.zip" using-jj)
+          elif [ -d using-jj ]; then
+            zip -r "dist/${SAFE}.zip" using-jj
+          else
+            echo "No using-jj skill directory found at skills/using-jj or using-jj" >&2
+            ls -la
+            exit 1
+          fi
           ls -la dist/
 
       - name: Create GitHub Release
