@@ -62,5 +62,7 @@ jobs:
           files: dist/*.zip
           generate_release_notes: true
           fail_on_unmatched_files: true
+          # Tag pushes mark latest; manual backfills of older tags should not.
+          make_latest: ${{ github.event_name == 'push' }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
