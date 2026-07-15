@@ -17,17 +17,8 @@ default **regex:**, push skip behavior). Apply that file when the user’s CLI i
 
 Do **not** assume 0.43-only features (e.g. real `jj run`) work on 0.40/0.41.
 
-**Validate with the repo-local binary** (not system PATH `jj`):
-
-```bash
-./tools/install/jj/bin/jj-0.40.0 --version   # baseline
-./tools/install/jj/bin/jj-0.41.0 --version   # with VERSIONS.md gates
-# Docs: https://www.jj-vcs.dev/v0.40.0/  ·  https://www.jj-vcs.dev/v0.41.0/
-```
-
-Research / features: `docs/research/jj-feature-audit/v0.40.0/`,
-`docs/research/jj-feature-audit/v0.41.0/`, `docs/product/features/jj-0.40.0.md`,
-`docs/product/features/jj-0.41.0.md`.
+Check the installed CLI with `jj --version`. Official docs for the gated lines:
+[v0.40.0](https://www.jj-vcs.dev/v0.40.0/) · [v0.41.0](https://www.jj-vcs.dev/v0.41.0/).
 
 Repo overview (install, pack layout, version policy): [../../README.md](../../README.md).
 

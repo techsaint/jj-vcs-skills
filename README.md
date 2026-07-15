@@ -20,8 +20,8 @@ Official docs: [v0.40.0](https://www.jj-vcs.dev/v0.40.0/) · [v0.41.0](https://w
 
 | jj CLI | Skill gates | Tag (this repo) |
 |---|---|---|
-| **0.40.0** | Baseline recipes (M3) | `using-jj/jj-0.40.0` |
-| **0.41.0** | + version gates (M3) | `using-jj/jj-0.41.0` (tip) |
+| **0.40.0** | Baseline recipes | `using-jj/jj-0.40.0` |
+| **0.41.0** | + version gates | `using-jj/jj-0.41.0` (tip) |
 | 0.42.0 | Not finished yet | — |
 | 0.43.0 | Not finished yet | — |
 
@@ -80,9 +80,6 @@ Exact config keys depend on the host tool (Claude Code, Cursor, Codex, etc.).
 What matters: the tool sees a directory named `using-jj` that contains
 **`SKILL.md`**.
 
-The pack is **portable** — no private monorepo paths required for day-to-day
-jj help. Maintainer paths below are only for working inside jj-skills.
-
 ---
 
 ## What’s in the pack
@@ -134,32 +131,6 @@ jj tag list
 # using-jj/jj-0.41.0
 
 jj new using-jj/jj-0.40.0    # work from the 0.40 snapshot
-```
-
----
-
-## Maintainers (jj-skills monorepo)
-
-If this tree lives as a **nested** repo under a parent workbench
-(`jj-skills/src/` gitignored from the parent):
-
-| Concern | Where |
-|---|---|
-| Product desk / maturity | Parent `docs/product/features/jj-0.4x.0.md` |
-| Confirmation process | Parent `plans/confirm-jj-version-features/` |
-| CLI checker | Parent `scripts/check_using_jj_skill.py` |
-| Repo-local jj binaries | Parent `tools/install/jj/bin/jj-<ver>` |
-| Tags / dual-repo notes | Parent `docs/notes/releases/skill-version-tags.md` |
-
-Validate with **repo-local binaries**, not PATH jj:
-
-```bash
-# from monorepo root
-python3 scripts/check_using_jj_skill.py --version 0.41.0
-# default --skill-dir src/skills/using-jj
-
-./tools/install/jj/bin/jj-0.40.0 --version
-./tools/install/jj/bin/jj-0.41.0 --version
 ```
 
 ---

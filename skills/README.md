@@ -12,15 +12,11 @@ skills/                      ← discovery root
     …
 ```
 
-| Skill | Portable? | Description |
-|---|---|---|
-| [using-jj](./using-jj/) | **Yes** — community | General Jujutsu (jj) skill; CLI version gates |
+| Skill | Description |
+|---|---|
+| [using-jj](./using-jj/) | General Jujutsu (jj) skill; CLI version gates |
 
-`porthole-jj` (Porthole monorepo pilot) was **removed** — not portable, not
-maintained for 0.40+ gates. Isolation/run-file ideas belong in project docs or
-a future generic scaffold, not this public catalog.
-
-## using-jj (public product)
+## using-jj
 
 - Pack: [using-jj/](./using-jj/)
 - Skills file: [using-jj/SKILL.md](./using-jj/SKILL.md)
@@ -37,6 +33,3 @@ ln -s "$(pwd)/using-jj" /path/to/.agents/skills/using-jj
 # Or set the tool’s skills directory to this folder (multi-skill root)
 # skills_root = /path/to/this/repo/skills
 ```
-
-Parent monorepo: product path is `src/skills/using-jj/`;
-frozen consumer install remains `docs/llm/skills/` until product M5.
