@@ -1,20 +1,21 @@
 # Version gates (jj CLI lines)
 
-This skill pack supports **jj through 0.42.0**.
+This skill pack supports **jj through 0.43.0**.
 
 - **Baseline recipes** (guides + `SKILL.md` workflows): written for **jj 0.40.0**.
-- **0.41.0 / 0.42.0 gates** (this file): differences from 0.40 that apply when the
-  user’s `jj --version` matches that line.
+- **0.41.0 / 0.42.0 / 0.43.0 gates** (this file): differences from 0.40 that apply
+  when the user’s `jj --version` matches that line.
 
 Match gates to the installed CLI. Official docs:
 https://www.jj-vcs.dev/v0.40.0/ · https://www.jj-vcs.dev/v0.41.0/ ·
-https://www.jj-vcs.dev/v0.42.0/
+https://www.jj-vcs.dev/v0.42.0/ · https://www.jj-vcs.dev/v0.43.0/
 
 | CLI line | Skill status |
 |---|---|
 | **0.40.0** | Baseline recipes |
 | **0.41.0** | Gates below |
 | **0.42.0** | Gates below (includes 0.41) |
+| **0.43.0** | Gates below (includes 0.41–0.42) |
 
 ---
 
@@ -126,4 +127,49 @@ Do **not** confuse `jj describe --edit` (removed) with `jj describe --editor`
 ### Still a stub: `jj run`
 
 `jj run` remains a **stub** on 0.42 (help exists; does not work for production
-use). Do not teach it as a working workflow on this line.
+use). Do not teach it as a working workflow on this line. Real `jj run` is
+**0.43+** (next section).
+
+---
+
+## Since 0.43.0
+
+Apply **all 0.41 and 0.42 gates above**, plus:
+
+### `jj run` is real (0.43+ only)
+
+On 0.43, `jj run` checks out each selected revision in an **isolated working
+copy**, runs a command, then **amends** that revision. Descendants rebase onto
+the amended commits by default (`--restore-descendants` keeps descendant
+*content*). Do **not** use this recipe on 0.40–0.42 (stub only).
+
+```bash
+jj run -- cargo check --all-features
+jj run -- cargo fix
+jj run -j 4 -- pre-commit run
+jj run -r 'bookmarks()..@' -- cargo test
+```
+
+Hints from 0.43 help: use `--` before flags meant for the inner command;
+`--root` runs from the working-copy root; `--clean` deletes reused workspaces
+between invocations; env vars `JJ_CHANGE_ID`, `JJ_COMMIT_ID`, `JJ_WORKSPACE_ROOT`
+are set.
+
+### `jj show --reversed`
+
+On 0.43, `jj show` accepts `--reversed` (in addition to multi-rev from 0.42).
+
+### Revsets / symbols removed or added
+
+| Change | Do instead |
+|---|---|
+| `git_head()` / `git_refs()` **removed** | Do not use; they hard-fail. Prefer current bookmark / git-tracking revsets on your binary (`jj help -k revsets`) |
+| Git-like `refs/heads/main` **no longer resolves** | Use bookmark/tag `main` or `main@origin` |
+| `jj bookmark track` / `untrack` no `<kind>:` patterns | Use `<bookmark>@<remote>` only |
+| `forks()` **added** | Commits with more than one child — useful for merge/stack queries |
+
+### `jj git fetch` stack rebase (0.43)
+
+Fetch rebases descendants of change-ID-rewritten revisions more completely than
+0.42 (including stacks with multiple bookmarked revisions). Immutable
+descendants are not rebased. After fetch on a stack, re-check `jj log`.

@@ -7,18 +7,19 @@ description: Use when working with Jujutsu (jj) version control - provides compr
 
 ## Target version
 
-This pack supports **jj through 0.42.0**.
+This pack supports **jj through 0.43.0**.
 
 - **Baseline recipes (0.40.0):** core command surfaces in the guides
   (init/squash/bookmark/undo/…) are written for **0.40.0**.
-- **0.41.0 / 0.42.0 gates:** differences from 0.40 are in [VERSIONS.md](./VERSIONS.md)
-  (e.g. `--no-integrate-operation`, file-search **regex:** default, push skip,
-  multi-rev `jj show`, removed push/describe author flags). Apply that file when
-  `jj --version` is **0.41.0** or **0.42.0**.
+- **0.41.0 / 0.42.0 / 0.43.0 gates:** differences from 0.40 are in
+  [VERSIONS.md](./VERSIONS.md) (e.g. `--no-integrate-operation`, file-search
+  **regex:** default, push skip, multi-rev `jj show`, removed flags, real
+  **`jj run`** on 0.43). Apply that file when `jj --version` is **0.41.0**,
+  **0.42.0**, or **0.43.0**.
 
 Check the installed CLI with `jj --version`. Official docs:
 [v0.40.0](https://www.jj-vcs.dev/v0.40.0/) · [v0.41.0](https://www.jj-vcs.dev/v0.41.0/) ·
-[v0.42.0](https://www.jj-vcs.dev/v0.42.0/).
+[v0.42.0](https://www.jj-vcs.dev/v0.42.0/) · [v0.43.0](https://www.jj-vcs.dev/v0.43.0/).
 
 Repo overview (install, pack layout, version policy): [../../README.md](../../README.md).
 
@@ -68,11 +69,11 @@ If you want to leverage jj's unique power:
 This skill includes seven comprehensive reference documents plus version gates:
 
 ### 0. [VERSIONS.md](./VERSIONS.md)
-**CLI version gates (0.40 baseline + 0.41 / 0.42 differences)**
+**CLI version gates (0.40 baseline + 0.41 / 0.42 / 0.43 differences)**
 
-**Load when:** the user’s `jj --version` is **0.41.0** or **0.42.0**, or the
-task involves automation / bulk push / file search / multi-rev `show` / fetch
-evolution on those lines.
+**Load when:** the user’s `jj --version` is **0.41.0**, **0.42.0**, or **0.43.0**,
+or the task involves automation / bulk push / file search / multi-rev `show` /
+fetch evolution / **`jj run`** on those lines.
 
 ### 1. [jj-git-command-reference.md](./jj-git-command-reference.md) (23KB)
 **Complete command mappings from git to jj**
@@ -370,9 +371,12 @@ jj git push
    ([VERSIONS.md](./VERSIONS.md))
 8. **jj 0.42:** `jj show` accepts multiple revisions; do not use removed
    `--allow-new` / describe author flags ([VERSIONS.md](./VERSIONS.md))
+9. **jj 0.43:** `jj run` is real (isolated WC per revision). Do not teach
+   removed git-head / git-refs revsets or `refs/heads/…` symbols
+   ([VERSIONS.md](./VERSIONS.md))
 
 → See: [jujutsu-workflows.md](./jujutsu-workflows.md) § Common Pitfalls & Gotchas - Load when you encounter confusing behavior or errors, or to learn common mistakes to avoid.
-→ See: [VERSIONS.md](./VERSIONS.md) for 0.41 / 0.42 gates.
+→ See: [VERSIONS.md](./VERSIONS.md) for 0.41 / 0.42 / 0.43 gates.
 
 ## Migration Strategies
 
@@ -439,9 +443,9 @@ jj config set --user ui.diff.tool meld
 
 ### Official Resources
 - Website: https://github.com/jj-vcs/jj
-- **Version-pinned docs:** [0.40.0](https://www.jj-vcs.dev/v0.40.0/) · [0.41.0](https://www.jj-vcs.dev/v0.41.0/) · [0.42.0](https://www.jj-vcs.dev/v0.42.0/)
+- **Version-pinned docs:** [0.40.0](https://www.jj-vcs.dev/v0.40.0/) · [0.41.0](https://www.jj-vcs.dev/v0.41.0/) · [0.42.0](https://www.jj-vcs.dev/v0.42.0/) · [0.43.0](https://www.jj-vcs.dev/v0.43.0/)
 - Latest docs (moves): https://docs.jj-vcs.dev/latest/
-- Tutorial: https://www.jj-vcs.dev/v0.42.0/tutorial/ (or `/v0.40.0/tutorial/` for baseline)
+- Tutorial: https://www.jj-vcs.dev/v0.43.0/tutorial/ (or `/v0.40.0/tutorial/` for baseline)
 - **CLI version gates (this pack):** [VERSIONS.md](./VERSIONS.md)
 
 ### Community
