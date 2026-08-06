@@ -402,6 +402,7 @@ jj log -r 'diff_contains("foo")'
 **Key differences:**
 - Shows description and diff of any commit
 - Works the same way for working copy and any other commit
+- **jj ≥ 0.42:** accepts multiple revisions (`jj show @ @-`), closer to `git show`
 
 **Examples:**
 ```bash
@@ -413,6 +414,9 @@ jj show abc123
 
 # Show parent of working copy
 jj show @-
+
+# jj ≥ 0.42: multiple revisions
+jj show @ @-
 ```
 
 ### git blame
