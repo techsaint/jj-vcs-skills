@@ -7,12 +7,12 @@ description: Use when working with Jujutsu (jj) version control - provides compr
 
 ## Target version
 
-This pack is written for **jj 0.44.0**. Check `jj --version`. Official docs:
-[v0.44.0](https://www.jj-vcs.dev/v0.44.0/).
+This pack is written for **jj 0.45.0**. Check `jj --version`. Official docs:
+[v0.45.0](https://www.jj-vcs.dev/v0.45.0/).
 
-On 0.44, use the guides as-is. New vs **0.43**: tracked **tags** (fetch/push
-like bookmarks); `jj tag track`/`untrack`; file-search prints matching lines;
-`jj run` oldest-first plus `--passthrough` / `--ignore-errors`. Details:
+On 0.45, use the guides as-is. New vs **0.44**: **`jj converge`** for
+divergent changes; config `--user` writes the first loaded user file;
+`jj run` stops on a failed child unless `--ignore-errors`. Details:
 [VERSIONS.md](./VERSIONS.md). If you are on an older CLI, use that file (or
 tag `using-jj/jj-<version>`).
 
@@ -64,9 +64,9 @@ If you want to leverage jj's unique power:
 This skill includes seven comprehensive reference documents plus version gates:
 
 ### 0. [VERSIONS.md](./VERSIONS.md)
-**Current line (0.44) plus notes if `jj --version` is older**
+**Current line (0.45) plus notes if `jj --version` is older**
 
-**Load when:** using **tags**, **`jj run`**, file search, or an older CLI than 0.44.
+**Load when:** using **`jj converge`**, tags, **`jj run`**, or an older CLI than 0.45.
 
 ### 1. [jj-git-command-reference.md](./jj-git-command-reference.md) (23KB)
 **Complete command mappings from git to jj**
@@ -364,11 +364,13 @@ jj git push
 8. `jj git push --all` pushes bookmarks **and** tracked tags; `jj tag track` /
    `untrack` work like bookmarks
 9. `jj show` accepts multiple revisions; `jj run` is a real isolated-WC command
-   (oldest-first; `--passthrough` / `--ignore-errors` on 0.44)
-10. Do not teach removed git-head / git-refs revsets or `refs/heads/…` symbols
+   (oldest-first; default **stops** on a failed child — `--ignore-errors` to
+   continue)
+10. Divergent change IDs: **`jj converge --no-interactive`** (0.45+); do not
+    teach removed git-head / git-refs revsets or `refs/heads/…` symbols
 
 → See: [jujutsu-workflows.md](./jujutsu-workflows.md) § Common Pitfalls & Gotchas
-→ Older CLI than 0.44: [VERSIONS.md](./VERSIONS.md)
+→ Older CLI than 0.45: [VERSIONS.md](./VERSIONS.md)
 
 ## Migration Strategies
 
@@ -435,7 +437,7 @@ jj config set --user ui.diff.tool meld
 
 ### Official Resources
 - Website: https://github.com/jj-vcs/jj
-- **Docs for this line:** [0.44.0](https://www.jj-vcs.dev/v0.44.0/) · [tutorial](https://www.jj-vcs.dev/v0.44.0/tutorial/)
+- **Docs for this line:** [0.45.0](https://www.jj-vcs.dev/v0.45.0/) · [tutorial](https://www.jj-vcs.dev/v0.45.0/tutorial/)
 - Unversioned official docs (moves): https://docs.jj-vcs.dev/latest/
 - Older CLI notes / pins: [VERSIONS.md](./VERSIONS.md)
 
