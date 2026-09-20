@@ -19,23 +19,23 @@ community packs), reworked and re-verified for modern jj CLI lines.
 | **Skills file** | [`skills/using-jj/SKILL.md`](./skills/using-jj/SKILL.md) |
 | **CLI version gates** | [`skills/using-jj/VERSIONS.md`](./skills/using-jj/VERSIONS.md) |
 
-Official docs for this snapshot: [v0.45.0](https://www.jj-vcs.dev/v0.45.0/)
+Official docs for this snapshot: [v0.45.1](https://www.jj-vcs.dev/v0.45.1/)
 
 ---
 
 ## Status
 
-This snapshot is written for **jj 0.45.0** (tag `using-jj/jj-0.45.0`).
+This snapshot is written for **jj 0.45.1** (tag `using-jj/jj-0.45.1`).
 
 If you run an older `jj --version`, open [`VERSIONS.md`](./skills/using-jj/VERSIONS.md)
-or pin a tag (`using-jj/jj-0.44.0`, `using-jj/jj-0.43.0`, `using-jj/jj-0.42.0`, …).
+or pin a tag (`using-jj/jj-0.45.0`, `using-jj/jj-0.44.0`, `using-jj/jj-0.43.0`, …).
 The default branch is whatever this project currently publishes as HEAD.
 
 ---
 
 ## Quick start
 
-**Core workflow (jj 0.45):**
+**Core workflow (jj 0.45.1):**
 
 ```bash
 jj status
@@ -93,7 +93,7 @@ What matters: the tool sees a directory named `using-jj` that contains
 | File | Role |
 |---|---|
 | [`SKILL.md`](./skills/using-jj/SKILL.md) | Skills file: target versions, TRIGGER, index, common workflows |
-| [`VERSIONS.md`](./skills/using-jj/VERSIONS.md) | **0.45 notes** + what differs on older CLIs |
+| [`VERSIONS.md`](./skills/using-jj/VERSIONS.md) | **0.45.1 notes** + what differs on older CLIs |
 | [`jj-mental-model.md`](./skills/using-jj/jj-mental-model.md) | How jj thinks (change IDs, op log, revsets, …) |
 | [`jj-setup-guide.md`](./skills/using-jj/jj-setup-guide.md) | Install, config, colocate, migration |
 | [`jj-git-command-reference.md`](./skills/using-jj/jj-git-command-reference.md) | git → jj command map |
@@ -106,8 +106,8 @@ What matters: the tool sees a directory named `using-jj` that contains
 
 ## Version policy
 
-1. **This snapshot = jj 0.45.0.** Recipes and `SKILL.md` are present-tense for
-   that line. Official docs: [v0.45.0](https://www.jj-vcs.dev/v0.45.0/).
+1. **This snapshot = jj 0.45.1.** Recipes and `SKILL.md` are present-tense for
+   that line (same CLI as 0.45.0). Official docs: [v0.45.1](https://www.jj-vcs.dev/v0.45.1/).
 2. **Older CLIs** — [`VERSIONS.md`](./skills/using-jj/VERSIONS.md), or a tag
    `using-jj/jj-<version>`.
 3. Check `jj --version` before copying a recipe that might be line-specific
