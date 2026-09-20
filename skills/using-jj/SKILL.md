@@ -7,10 +7,10 @@ description: Use when working with Jujutsu (jj) version control - provides compr
 
 ## Target version
 
-This pack is written for **jj 0.45.0**. Check `jj --version`. Official docs:
-[v0.45.0](https://www.jj-vcs.dev/v0.45.0/).
+This pack is written for **jj 0.45.1**. Check `jj --version`. Official docs:
+[v0.45.1](https://www.jj-vcs.dev/v0.45.1/).
 
-On 0.45, use the guides as-is. New vs **0.44**: **`jj converge`** for
+On 0.45.1, use the guides as-is (same CLI as 0.45.0). New vs **0.44**: **`jj converge`** for
 divergent changes; config `--user` writes the first loaded user file;
 `jj run` stops on a failed child unless `--ignore-errors`. Details:
 [VERSIONS.md](./VERSIONS.md). If you are on an older CLI, use that file (or
@@ -64,9 +64,9 @@ If you want to leverage jj's unique power:
 This skill includes seven comprehensive reference documents plus version gates:
 
 ### 0. [VERSIONS.md](./VERSIONS.md)
-**Current line (0.45) plus notes if `jj --version` is older**
+**Current line (0.45.1) plus notes if `jj --version` is older**
 
-**Load when:** using **`jj converge`**, tags, **`jj run`**, or an older CLI than 0.45.
+**Load when:** using **`jj converge`**, tags, **`jj run`**, or an older CLI than 0.45.1.
 
 ### 1. [jj-git-command-reference.md](./jj-git-command-reference.md) (23KB)
 **Complete command mappings from git to jj**
@@ -370,7 +370,7 @@ jj git push
     teach removed git-head / git-refs revsets or `refs/heads/…` symbols
 
 → See: [jujutsu-workflows.md](./jujutsu-workflows.md) § Common Pitfalls & Gotchas
-→ Older CLI than 0.45: [VERSIONS.md](./VERSIONS.md)
+→ Older CLI than 0.45.1: [VERSIONS.md](./VERSIONS.md)
 
 ## Migration Strategies
 
@@ -437,7 +437,7 @@ jj config set --user ui.diff.tool meld
 
 ### Official Resources
 - Website: https://github.com/jj-vcs/jj
-- **Docs for this line:** [0.45.0](https://www.jj-vcs.dev/v0.45.0/) · [tutorial](https://www.jj-vcs.dev/v0.45.0/tutorial/)
+- **Docs for this line:** [0.45.1](https://www.jj-vcs.dev/v0.45.1/) · [tutorial](https://www.jj-vcs.dev/v0.45.1/tutorial/)
 - Unversioned official docs (moves): https://docs.jj-vcs.dev/latest/
 - Older CLI notes / pins: [VERSIONS.md](./VERSIONS.md)
 

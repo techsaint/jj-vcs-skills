@@ -1,21 +1,28 @@
 # Version notes (jj CLI)
 
-This pack is written for **jj 0.45.0**. Official docs:
-https://www.jj-vcs.dev/v0.45.0/
+This pack is written for **jj 0.45.1**. Official docs:
+https://www.jj-vcs.dev/v0.45.1/
 
-Check `jj --version`. On **0.45**, follow the guides plus **Current line**
+Check `jj --version`. On **0.45.1**, follow the guides plus **Current line**
 below. On an **older** CLI, use the matching section (or install tag
 `using-jj/jj-<that-version>` for a snapshot that does not mention later lines).
 
-Older official manuals: https://www.jj-vcs.dev/v0.44.0/ ·
+Older official manuals: https://www.jj-vcs.dev/v0.45.0/ ·
+https://www.jj-vcs.dev/v0.44.0/ ·
 https://www.jj-vcs.dev/v0.43.0/ · https://www.jj-vcs.dev/v0.42.0/ ·
 https://www.jj-vcs.dev/v0.41.0/ · https://www.jj-vcs.dev/v0.40.0/
 
 ---
 
-## Current line — 0.45.0
+## Current line — 0.45.1
 
-What 0.45 adds or hardens vs **0.44** (already in the recipes unless noted):
+**Patch on 0.45.0.** Agent-facing commands and flags are the same (`jj
+converge`, config `--file` / first `--user` file, `jj run` stops on a
+failed child). Official 0.45.1 notes are crate-publish / `cargo install`
+and SHA-256 Git signature storage (`gpgsig-sha256`). Use the 0.45 recipes
+below.
+
+What 0.45.0 added vs **0.44** (already in the recipes unless noted):
 
 ### `jj converge`
 
@@ -57,6 +64,12 @@ Still true on 0.45 (from earlier lines): tracked tags; clone `--tag`
 plus `--passthrough` / `--ignore-changes`; `merge_point(x)`; real
 `jj run` (0.43+); do not use removed git-head / git-refs revsets or
 `refs/heads/…` symbols.
+
+---
+
+## If you are on 0.45.0
+
+Same recipes as 0.45.1. No `jj converge` / config / `jj run` differences.
 
 ---
 
