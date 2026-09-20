@@ -42,6 +42,8 @@ jj git init --no-colocate
 - Only supports cloning Git repositories (for now)
 - Uses `--remote` instead of `--origin` to specify remote name
 - Creates a colocated repository by default
+- **jj ≥ 0.44:** limit fetched tags with `--tag=PATTERN`. Do **not** pass
+  `--fetch-tags=all|none|included` (removed; see [VERSIONS.md](./VERSIONS.md))
 
 **Examples:**
 ```bash
@@ -325,15 +327,17 @@ jj new main@origin
 **Key differences:**
 - Can push all bookmarks or specific bookmarks
 - Use `--bookmark` to push a specific bookmark
-- Use `--all` to push all bookmarks
+- Use `--all` to push all bookmarks (**jj ≥ 0.44:** also all tags)
 - Use `--change` to create a bookmark for a specific change and push it
 - **jj ≥ 0.41:** `--all` / `--tracked` / `-r` **skip** bookmarks that are private
   or conflicted instead of failing the whole push — always verify what landed
   (see [VERSIONS.md](./VERSIONS.md))
+- **jj ≥ 0.44:** `--allow-conflicts` permits pushing commits that contain
+  conflicts; tags are tracked/untracked like bookmarks (`jj tag track`)
 
 **Examples:**
 ```bash
-# Push all bookmarks
+# Push all bookmarks (0.44+: and tags)
 jj git push --all
 # On 0.41+: check output / remotes — some bookmarks may have been skipped
 
