@@ -1,71 +1,78 @@
 # Version notes (jj CLI)
 
-This pack is written for **jj 0.44.0**. Official docs:
-https://www.jj-vcs.dev/v0.44.0/
+This pack is written for **jj 0.45.0**. Official docs:
+https://www.jj-vcs.dev/v0.45.0/
 
-Check `jj --version`. On **0.44**, follow the guides plus **Current line**
+Check `jj --version`. On **0.45**, follow the guides plus **Current line**
 below. On an **older** CLI, use the matching section (or install tag
 `using-jj/jj-<that-version>` for a snapshot that does not mention later lines).
 
-Older official manuals: https://www.jj-vcs.dev/v0.43.0/ ·
-https://www.jj-vcs.dev/v0.42.0/ · https://www.jj-vcs.dev/v0.41.0/ ·
-https://www.jj-vcs.dev/v0.40.0/
+Older official manuals: https://www.jj-vcs.dev/v0.44.0/ ·
+https://www.jj-vcs.dev/v0.43.0/ · https://www.jj-vcs.dev/v0.42.0/ ·
+https://www.jj-vcs.dev/v0.41.0/ · https://www.jj-vcs.dev/v0.40.0/
 
 ---
 
-## Current line — 0.44.0
+## Current line — 0.45.0
 
-What 0.44 adds or hardens vs **0.43** (already in the recipes unless noted):
+What 0.45 adds or hardens vs **0.44** (already in the recipes unless noted):
 
-### Tags fetch and push like bookmarks
+### `jj converge`
 
-Tracked tags are fetched and pushed by default. `jj git fetch` imports
-remote tags as `<tag>@<remote>` and tracks same-name local tags (first
-fetch after upgrade re-fetches tags to set tracking). Git `tagOpt` is
-ignored — use `remotes.<name>.fetch-tags` (e.g. `'~*'` to disable).
-
-```bash
-jj tag track 'v1.0@origin'
-jj tag untrack 'v1.0@origin'
-jj git push --all          # bookmarks and tags
-jj git push --allow-conflicts
-```
-
-`jj git clone` no longer accepts `--fetch-tags=all|none|included` (removed
-in 0.44). Use `--tag=PATTERN` to limit which tags are fetched.
-
-### `jj file search` prints matching lines
-
-Each match is a line, prefixed by the file path. `--name-only` restores
-path-only output. `-n` / `--line-number` prefixes the 1-based line number.
-`--pattern` still defaults to **regex:** unless you set a kind.
-
-### `jj run` order and flags
-
-Revisions start **oldest to newest**. Start order is guaranteed even with
-`-j` / `--jobs` > 1. New flags: `--passthrough` (child stdout/stderr to
-the terminal), `--ignore-changes` (do not amend even if the WC changed),
-`--ignore-errors` (keep going after a nonzero child exit).
+Resolves **divergent changes** (same change ID, more than one visible
+revision). Groups the search revset by change ID, tries heuristics, and
+replaces the divergent revisions with one solution. Descendants rebase;
+local bookmarks move to the solution. Review with `jj op show -p` /
+`jj evolog`; `jj undo` if the result is wrong.
 
 ```bash
-jj run --passthrough -- cargo test
-jj run --ignore-errors -- cargo check
+jj converge --no-interactive
+jj converge -r 'visible_heads()' --no-interactive
 ```
 
-On **0.42 and older**, `jj run` is a stub — do not use these recipes there.
+`--no-interactive` prints a warning and exits without changing the repo
+if prompting would be required (prefer this in agents). Default search
+is `revsets.converge` if you omit `-r`.
 
-### Revsets
+On **0.44 and older**, `jj converge` does not exist.
 
-| Change | Do instead |
-|---|---|
-| `merge_point(x)` **added** | Common descendant(s) of commits in `x` (counterpart of `fork_point`) |
-| `builtin_log()` **added** | Built-in default `jj log` revset; `revsets.log` defaults to it |
+### Config `--user` / `--file`
 
-Still true on 0.44 (from earlier lines): real `jj run`; `jj show --reversed`
-and multi-rev `show`; `forks()`; do not use removed git-head / git-refs
-revsets or `refs/heads/…` symbols; `--no-integrate-operation`; bulk
-`jj git push` may **skip** ineligible bookmarks; do not use removed 0.42
-flags (`--allow-new`, describe/commit author flags, old git config keys).
+`jj config edit|set|unset --user` writes the **first loaded** user
+config file (`~/.config/jj/config.toml` or the first `conf.d/` file),
+not an interactive picker. Use `--file PATH` to target a specific file.
+
+### `jj run` stops on failure
+
+Default: if a child exits nonzero, remaining revisions are **not** run.
+`--ignore-errors` still continues (same flag as 0.44).
+
+### Other 0.45 notes
+
+- Default `immutable_heads()` includes `untracked_remote_tags()`.
+- Non-colocated `jj git import` no longer imports a detached Git HEAD.
+
+Still true on 0.45 (from earlier lines): tracked tags; clone `--tag`
+(not `--fetch-tags`); file-search line output; `jj run` oldest-first
+plus `--passthrough` / `--ignore-changes`; `merge_point(x)`; real
+`jj run` (0.43+); do not use removed git-head / git-refs revsets or
+`refs/heads/…` symbols.
+
+---
+
+## If you are on 0.44.0
+
+Apply the 0.43 notes below, plus:
+
+- Tracked tags: `jj tag track`/`untrack`; `jj git push --all` includes
+  tags; `--allow-conflicts`. Clone: `--tag=PATTERN`, not `--fetch-tags`.
+- File search prints matching lines (`--name-only` for paths only).
+- `jj run` oldest-first; `--passthrough` / `--ignore-changes` /
+  `--ignore-errors`.
+- `merge_point(x)`; `builtin_log()`.
+- **No** `jj converge`. Config `--user` may still prompt when multiple
+  user files exist. `jj run` without `--ignore-errors` may have kept
+  going after a failed child (0.45 stops).
 
 ---
 
